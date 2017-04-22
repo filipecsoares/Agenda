@@ -1,5 +1,7 @@
 package com.agenda.model;
 
+import java.sql.Timestamp;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,8 +14,9 @@ public class User {
 	private Long id;
 	private String name;
 	private String email;
-	private String login;
+	private Boolean status;
 	private String password;
+	private Timestamp created;
 
 	public Long getId() {
 		return id;
@@ -39,12 +42,12 @@ public class User {
 		this.email = email;
 	}
 
-	public String getLogin() {
-		return login;
+	public Boolean getStatus() {
+		return status;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setStatus(Boolean status) {
+		this.status = status;
 	}
 
 	public String getPassword() {
@@ -55,9 +58,17 @@ public class User {
 		this.password = password;
 	}
 
+	public Timestamp getCreated() {
+		return created;
+	}
+
+	public void setCreated(Timestamp created) {
+		this.created = created;
+	}
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", email=" + email + ", login=" + login + ",password=" + password
+		return "User [id=" + id + ", name=" + name + ", email=" + email + ", status=" + status + ",password=" + password
 				+ "]";
 	}
 }

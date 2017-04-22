@@ -1,0 +1,24 @@
+<div class="jumbotron">
+	<h3>Usuários</h3>
+	<button class="btn btn-success" data-toggle="modal" data-target="#create-user">Adicionar</button>
+	<button class="btn btn-success" ng-click="atualizar()">Atualizar</button>
+	<br />
+	{{message}}
+	<input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="O que você está buscando?" />
+	<table ng-show="users.length > 0" class="table table-striped">
+		<tr>
+			<th>Ações</th>
+			<th><a href="" ng-click="ordenarPor('name')">Nome</a></th>
+			<th><a href="" ng-click="ordenarPor('email')">Email</a></th>
+			<th>Status</th>
+			<th>Cadastramento</th>
+		</tr>
+		<tr ng-repeat="user in users | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+			<td><input type="checkbox" /></td>
+			<td>{{user.name}}</td>
+			<td>{{user.email}}</td>
+			<td>{{user.status}}</td>
+			<td>{{user.created | date:'dd/MM/yyyy HH:mm'}}</td>
+		</tr>
+	</table>
+</div>
