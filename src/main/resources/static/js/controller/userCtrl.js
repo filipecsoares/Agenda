@@ -14,7 +14,7 @@ angular.module("agenda").controller("userCtrl", function($scope, $location, user
 		user.created = new Date();
 		userAPI.saveUser(user).then(function(data) {
 			delete $scope.user;
-			$scope.userForm.$setPristine();
+			$scope.userForm = {};
 		});
 	};
 	

@@ -14,7 +14,7 @@
 			<th>Status</th>
 			<th>Cadastramento</th>
 		</tr>
-		<tr ng-repeat="user in users">
+		<tr ng-repeat="user in users | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
 			<td>
 				<a class="btn btn-default" href="#!/userEdit">Editar</a>
 				<a class="btn btn-danger" href="#!/user" ng-click="deleteUser(user.id)">Excluir</a>
