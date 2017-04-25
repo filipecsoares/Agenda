@@ -18,6 +18,12 @@ angular.module("agenda").controller("userCtrl", function($scope, userAPI) {
 			findUsers();
 		});
 	};
+	
+	$scope.deleteUser = function(id) {
+		userAPI.deleteUser(id).then(function(data) {
+			findUsers();
+		});
+	};
 
 	$scope.ordenarPor = function(campo) {
 		$scope.criterioDeOrdenacao = campo;
