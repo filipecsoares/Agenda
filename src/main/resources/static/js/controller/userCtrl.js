@@ -1,4 +1,4 @@
-angular.module("agenda").controller("userCtrl", function($scope, userAPI) {
+angular.module("agenda").controller("userCtrl", function($scope, $location, userAPI) {
 	$scope.users = [];
 
 	var findUsers = function() {
@@ -15,13 +15,13 @@ angular.module("agenda").controller("userCtrl", function($scope, userAPI) {
 		userAPI.saveUser(user).then(function(data) {
 			delete $scope.user;
 			$scope.userForm.$setPristine();
-			findUsers();
 		});
 	};
 	
 	$scope.deleteUser = function(id) {
 		userAPI.deleteUser(id).then(function(data) {
 			findUsers();
+			$location.path("/user");
 		});
 	};
 

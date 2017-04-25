@@ -6,6 +6,6 @@ angular.module("agenda").service("userAPI", function($http) {
 		return $http.post("http://localhost:8080/user", user);
 	};
 	this.deleteUser = function(userId){
-		$http.delete("http://localhost:8080/user/" + userId);
+		return $http.delete("http://localhost:8080/user/" + userId);
 	};
 });

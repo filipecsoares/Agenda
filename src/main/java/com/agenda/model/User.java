@@ -8,67 +8,92 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class User {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
-	private String name;
-	private String email;
-	private Boolean status;
-	private String password;
-	private Timestamp created;
+public class User
+{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long      id;
 
-	public Long getId() {
-		return id;
-	}
+    private String    name;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    private String    email;
 
-	public String getName() {
-		return name;
-	}
+    private Boolean   status;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    private String    password;
 
-	public String getEmail() {
-		return email;
-	}
+    private Timestamp created;
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public Long getId()
+    {
+        return id;
+    }
 
-	public Boolean getStatus() {
-		return status;
-	}
+    public void setId(Long id)
+    {
+        this.id = id;
+    }
 
-	public void setStatus(Boolean status) {
-		this.status = status;
-	}
+    public String getName()
+    {
+        return name;
+    }
 
-	public String getPassword() {
-		return password;
-	}
+    public void setName(String name)
+    {
+        this.name = name;
+    }
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    public String getEmail()
+    {
+        return email;
+    }
 
-	public Timestamp getCreated() {
-		return created;
-	}
+    public void setEmail(String email)
+    {
+        this.email = email;
+    }
 
-	public void setCreated(Timestamp created) {
-		this.created = created;
-	}
+    public Boolean getStatus()
+    {
+        return status;
+    }
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", email=" + email + ", status=" + status + ",password=" + password
-				+ "]";
-	}
+    public void setStatus(Boolean status)
+    {
+        this.status = status;
+    }
+
+    public String getPassword()
+    {
+        return password;
+    }
+
+    public void setPassword(String password)
+    {
+        this.password = password;
+    }
+
+    public Timestamp getCreated()
+    {
+        return created;
+    }
+
+    public void setCreated(Timestamp created)
+    {
+        this.created = created;
+    }
+
+    public String getStatusString()
+    {
+        if(status != null && status)
+            return "Ativo";
+        return "Inativo";
+    }
+
+    @Override
+    public String toString()
+    {
+        return "User [id=" + id + ", name=" + name + ", email=" + email + ", status=" + status + ",password=" + password + "]";
+    }
 }

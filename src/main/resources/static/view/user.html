@@ -21,8 +21,13 @@
 			</td>
 			<td>{{user.name}}</td>
 			<td>{{user.email}}</td>
-			<td>{{user.status}}</td>
+			<td>{{user.statusString}}</td>
 			<td>{{user.created | date:'dd/MM/yyyy HH:mm'}}</td>
 		</tr>
+		<tfoot>
+			<tr>
+		    	<td colspan="5">Total: {{users.length}}</td>
+		    </tr>
+  		</tfoot>
 	</table>
 </div>

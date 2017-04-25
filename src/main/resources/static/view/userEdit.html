@@ -1,27 +1,30 @@
 <div class="jumbotron">
-	<form method="POST" name="addItem" role="form" ng-submit="saveUser(form)">
-     	   <div class="container">
-               <div class="form-group">
-                 <input ng-model="form.name" type="text" placeholder="Nome" name="name" class="form-control" required />
-               </div>
-               <div class="form-group" >
-                 <input ng-model="form.email" type="text" placeholder="Email" name="email" class="form-control" required />
-               </div>
-               <div class="form-group" >
-                 <input ng-model="form.password" type="password" placeholder="Senha" name="password" class="form-control" required />
-               </div>
-               <div class="form-group" >
-                 <label>
-				    <input type="radio" ng-model="form.status" ng-value="true" >
-				    Ativo
-				  </label>
-				  <label>
-				    <input type="radio" ng-model="form.status" ng-value="false">
-				    Inativo
-				  </label>
-	           </div>
-	        </div>
-	    <button type="submit" ng-disabled="addItem.$invalid" class="btn btn-success">Salvar</button>
-	    <a class="btn btn-danger" href="#!/user">Fechar</a>
+	<form method="POST" name="addItem" role="userForm" ng-submit="saveUser(userForm)">
+    	<div class="container">
+             <div class="form-group">
+               <input ng-model="userForm.name" type="text" placeholder="Nome" name="name" class="form-control" required />
+             </div>
+             <div class="form-group" >
+               <input ng-model="userForm.email" type="text" placeholder="Email" name="email" class="form-control" required />
+             </div>
+             <div class="form-group" >
+               <input ng-model="userForm.password" type="password" placeholder="Senha" name="password" class="form-control" required />
+             </div>
+             <div class="form-group" >
+             	<label>
+			    	<input type="radio" ng-model="userForm.status" ng-value="true" >
+			    	Ativo
+			  	</label>
+			  	<label>
+			    	<input type="radio" ng-model="userForm.status" ng-value="false">
+			    	Inativo
+				</label>
+	    	</div>
+	    </div>
+	    
+	    <div id="divButtons">
+		    <button type="submit" ng-disabled="addItem.$invalid" class="btn btn-success">Salvar</button>
+		    <a class="btn btn-danger" href="#!/user">Fechar</a>
+	    </div>
 	</form>
 </div>
