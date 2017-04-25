@@ -33,9 +33,7 @@ public class UserController {
 		}
 		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
 	}
-
-	// -------------------Retrieve Single
-	// User--------------------------------------------------------
+	
 	@CrossOrigin
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<User> findOne(@PathVariable("id") Long id) {
@@ -48,8 +46,6 @@ public class UserController {
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
 
-	// -------------------Create a
-	// User--------------------------------------------------------
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> save(@RequestBody User user, UriComponentsBuilder ucBuilder) {
 		System.out.println("Creating User " + user.getName());
@@ -61,8 +57,6 @@ public class UserController {
 		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
 	}
 
-	// ------------------- Delete a User
-	// --------------------------------------------------------
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<User> delete(@PathVariable("id") Long id) {
 		System.out.println("Fetching & Deleting User with id " + id);
@@ -77,8 +71,6 @@ public class UserController {
 		return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
 	}
 
-	// ------------------- Delete All Users
-	// --------------------------------------------------------
 	@RequestMapping(method = RequestMethod.DELETE)
 	public ResponseEntity<User> deleteAll() {
 		System.out.println("Deleting All Users");

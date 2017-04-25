@@ -1,5 +1,8 @@
 <div class="jumbotron">
 	<form method="POST" name="addItem" role="userForm" ng-submit="saveUser(userForm)">
+		<div class="alert alert-success" ng-show="addItem.name.$invalid && addItem.email.$invalid && addItem.password.$invalid && saveSuccess">
+			<strong>Salvo com sucesso!</strong>
+		</div>
     	<div class="container">
              <div class="form-group">
                <input ng-model="userForm.name" type="text" placeholder="Nome" name="name" class="form-control" required />
