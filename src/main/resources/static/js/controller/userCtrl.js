@@ -1,6 +1,5 @@
 angular.module("agenda").controller("userCtrl", function($scope, $location, userAPI) {
 	$scope.users = [];
-	$scope.saveSuccess = false;
 	
 	var findUsers = function() {
 
@@ -17,7 +16,7 @@ angular.module("agenda").controller("userCtrl", function($scope, $location, user
 		userAPI.saveUser(userForm).then(function(data) {
 			delete $scope.user;
 			$scope.userForm = {};
-			$scope.saveSuccess = true;
+			$scope.saveSuccess = 'Salvo com sucesso';
 		});
 	};
 	

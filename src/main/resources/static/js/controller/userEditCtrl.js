@@ -1,5 +1,4 @@
-angular.module("agenda").controller("userEditCtrl", function($scope, userAPI, userForm){
-	$scope.saveSuccess = false;
+angular.module("agenda").controller("userEditCtrl", function($scope, userAPI, userForm, $location){
 	$scope.userForm = userForm.data;
 	
 	$scope.saveUser = function(userForm) {
@@ -8,7 +7,8 @@ angular.module("agenda").controller("userEditCtrl", function($scope, userAPI, us
 		userAPI.saveUser(userForm).then(function(data) {
 			delete $scope.user;
 			$scope.userForm = {};
-			$scope.saveSuccess = true;
+			$location.path("/userEdit");
+			$scope.saveSuccess = 'Salvo com sucesso';
 		});
 	};
 });
