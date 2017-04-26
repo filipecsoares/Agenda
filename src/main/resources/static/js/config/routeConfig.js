@@ -11,7 +11,7 @@ angular.module("agenda").config(function($routeProvider) {
 	
 	$routeProvider.when("/userEdit/:id", {
 		templateUrl: "view/userEdit.html",
-		controller: "userCtrl",
+		controller: "userEditCtrl",
 		resolve: {
 			userForm: function (userAPI, $route) {
 				return userAPI.getUser($route.current.params.id);

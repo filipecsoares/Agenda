@@ -34,8 +34,9 @@ angular.module("agenda").controller("userCtrl", function($scope, $location, user
 	};
 
 	$scope.atualizar = function() {
-
-		findUsers();
+		$scope.criterioDeOrdenacao = "";
+		$scope.criterioDeBusca = "";
+		$location.path("/user");
 	};
 	findUsers();
 });
