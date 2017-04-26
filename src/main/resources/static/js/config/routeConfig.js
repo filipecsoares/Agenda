@@ -9,5 +9,15 @@ angular.module("agenda").config(function($routeProvider) {
 		controller: "userCtrl"
 	});
 	
+	$routeProvider.when("/userEdit/:id", {
+		templateUrl: "view/userEdit.html",
+		controller: "userCtrl",
+		resolve: {
+			userForm: function (userAPI, $route) {
+				return userAPI.getUser($route.current.params.id);
+			}
+		}
+	});
+	
 	$routeProvider.otherwise({redirectTo: "/"});
 });

@@ -1,10 +1,6 @@
 angular.module("agenda").controller("userCtrl", function($scope, $location, userAPI) {
 	$scope.users = [];
 	$scope.saveSuccess = false;
-
-	$scope.editUser = function(user){
-		$scope.userForm = user;
-	};
 	
 	var findUsers = function() {
 
@@ -15,9 +11,10 @@ angular.module("agenda").controller("userCtrl", function($scope, $location, user
 		});
 	};
 
-	$scope.saveUser = function(user) {
-		user.created = new Date();
-		userAPI.saveUser(user).then(function(data) {
+	$scope.saveUser = function(userForm) {
+		userForm.created = new Date();
+		
+		userAPI.saveUser(userForm).then(function(data) {
 			delete $scope.user;
 			$scope.userForm = {};
 			$scope.saveSuccess = true;
