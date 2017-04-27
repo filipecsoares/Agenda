@@ -8,10 +8,12 @@
                <input ng-model="businessForm.name" type="text" placeholder="Nome" name="name" class="form-control" required />
              </div>
              <div class="form-group" >
-               <input ng-model="businessForm.owner" type="text" placeholder="Email" name="email" class="form-control" required />
+             	<select class="form-control" ng-model="businessForm.owner" ng-options="user.name for user in users | orderBy:'name'" required >
+					<option value="">Selecione</option>
+				</select>
              </div>
              <div class="form-group" >
-               <input ng-model="businessForm.description" type="text" placeholder="Descrição" name="description" class="form-control" required />
+               <textarea ng-model="businessForm.description" rows="4" placeholder="Descrição" name="description" class="form-control" required ></textarea>
              </div>
              <div class="form-group" >
              	<label>

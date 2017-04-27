@@ -1,5 +1,16 @@
-angular.module("agenda").controller("businessCtrl", function($scope, $location, businessAPI) {
+angular.module("agenda").controller("businessCtrl", function($scope, $location, businessAPI, userAPI) {
 	$scope.businesses = [];
+	$scope.users = [];
+	
+	var findUsers = function() {
+
+		userAPI.getUsers().then(function(res) {
+			$scope.users = res.data;
+			console.log($scope.users);
+		}, function(res) {
+			$scope.message = "Problema: " + data;
+		});
+	};
 	
 	var findBusinesses = function() {
 
@@ -24,6 +35,10 @@ angular.module("agenda").controller("businessCtrl", function($scope, $location, 
 			$location.path("/business");
 		});
 	};
+	
+	$scope.addBusiness = function() {
+		findUsers();
+	}
 
 	$scope.ordenarPor = function(campo) {
 		$scope.criterioDeOrdenacao = campo;
