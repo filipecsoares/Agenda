@@ -1,0 +1,33 @@
+<div class="jumbotron">
+	<h3>Negócios</h3>
+	<a class="btn btn-success" href="#!/businessEdit">Adicionar</a>
+	<button class="btn btn-success" ng-click="atualizar()">Atualizar</button>
+	<br /><br />
+	{{message}}
+	<input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="O que você está buscando?" />
+	<br />
+	<table ng-show="businesses.length > 0" class="table table-striped">
+		<tr>
+			<th>Ações</th>
+			<th><a href="" ng-click="ordenarPor('name')">Nome</a></th>
+			<th><a href="" ng-click="ordenarPor('owner.name')">Proprietário</a></th>
+			<th>Descrição</th>
+			<th>Status</th>
+		</tr>
+		<tr ng-repeat="business in businesses | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
+			<td>
+				<a class="btn btn-default" href="#!/businessEdit/{{business.id}}">Editar</a>
+				<a class="btn btn-danger" href="#!/business" ng-click="deleteBusiness(business.id)">Excluir</a>
+			</td>
+			<td>{{business.name}}</td>
+			<td>{{business.owner.name}}</td>
+			<td>{{business.description}}</td>
+			<td>{{business.statusString}}</td>
+		</tr>
+		<tfoot>
+			<tr>
+		    	<td colspan="5">Total: {{businesses.length}}</td>
+		    </tr>
+  		</tfoot>
+	</table>
+</div>

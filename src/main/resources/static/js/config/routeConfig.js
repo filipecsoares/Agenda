@@ -1,4 +1,9 @@
 angular.module("agenda").config(function($routeProvider) {
+	$routeProvider.when('/', {
+		templateUrl: 'view/home.html',
+		controller: 'indexCtrl'
+	});
+	
 	$routeProvider.when('/user', {
 		templateUrl: 'view/user.html',
 		controller: 'userCtrl'
@@ -15,6 +20,26 @@ angular.module("agenda").config(function($routeProvider) {
 		resolve: {
 			userForm: function (userAPI, $route) {
 				return userAPI.getUser($route.current.params.id);
+			}
+		}
+	});
+	
+	$routeProvider.when('/business', {
+		templateUrl: 'view/business.html',
+		controller: 'businessCtrl'
+	});
+	
+	$routeProvider.when("/businessEdit", {
+		templateUrl: "view/businessEdit.html",
+		controller: "businessCtrl"
+	});
+	
+	$routeProvider.when("/businessEdit/:id", {
+		templateUrl: "view/businessEdit.html",
+		controller: "businessEditCtrl",
+		resolve: {
+			userForm: function (businessAPI, $route) {
+				return businessAPI.getUser($route.current.params.id);
 			}
 		}
 	});
