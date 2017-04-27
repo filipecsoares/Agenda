@@ -6,7 +6,6 @@ angular.module("agenda").controller("businessCtrl", function($scope, $location, 
 
 		userAPI.getUsers().then(function(res) {
 			$scope.users = res.data;
-			console.log($scope.users);
 		}, function(res) {
 			$scope.message = "Problema: " + data;
 		});

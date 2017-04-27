@@ -40,6 +40,9 @@ angular.module("agenda").config(function($routeProvider) {
 		resolve: {
 			userForm: function (businessAPI, $route) {
 				return businessAPI.getUser($route.current.params.id);
+			},
+			users: function(userAPI) {
+				return userAPI.getUsers();
 			}
 		}
 	});
