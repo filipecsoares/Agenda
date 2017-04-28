@@ -31,15 +31,24 @@ angular.module("agenda").config(function($routeProvider) {
 	
 	$routeProvider.when("/businessEdit", {
 		templateUrl: "view/businessEdit.html",
-		controller: "businessCtrl"
+		controller: "businessEditCtrl",
+		resolve: {
+			businessForm: function(){
+				return null;
+			},
+			
+			users: function(userAPI) {
+				return userAPI.getUsers();
+			}
+		}
 	});
 	
 	$routeProvider.when("/businessEdit/:id", {
 		templateUrl: "view/businessEdit.html",
 		controller: "businessEditCtrl",
 		resolve: {
-			userForm: function (businessAPI, $route) {
-				return businessAPI.getUser($route.current.params.id);
+			businessForm: function (businessAPI, $route) {
+				return businessAPI.getBusiness($route.current.params.id);
 			},
 			users: function(userAPI) {
 				return userAPI.getUsers();

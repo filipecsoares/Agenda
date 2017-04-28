@@ -8,21 +8,21 @@
 	<br />
 	<table ng-show="businesses.length > 0" class="table table-striped">
 		<tr>
-			<th>Ações</th>
 			<th><a href="" ng-click="ordenarPor('name')">Nome</a></th>
 			<th><a href="" ng-click="ordenarPor('owner.name')">Proprietário</a></th>
 			<th>Descrição</th>
 			<th>Status</th>
+			<th>Ações</th>
 		</tr>
 		<tr ng-repeat="business in businesses | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-			<td>
+			<td width="20%">{{business.name}}</td>
+			<td width="20%">{{business.owner.name}}</td>
+			<td width="30%">{{business.description}}</td>
+			<td width="15%">{{business.statusString}}</td>
+			<td width="15%">
 				<a class="btn btn-default" href="#!/businessEdit/{{business.id}}">Editar</a>
 				<a class="btn btn-danger" href="#!/business" ng-click="deleteBusiness(business.id)">Excluir</a>
 			</td>
-			<td>{{business.name}}</td>
-			<td>{{business.owner.name}}</td>
-			<td>{{business.description}}</td>
-			<td>{{business.statusString}}</td>
 		</tr>
 		<tfoot>
 			<tr>

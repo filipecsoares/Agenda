@@ -19,14 +19,6 @@ angular.module("agenda").controller("businessCtrl", function($scope, $location, 
 			$scope.message = "Problema: " + data;
 		});
 	};
-
-	$scope.saveBusiness = function(businessForm) {
-		businessAPI.saveBusiness(businessForm).then(function(data) {
-			delete $scope.business;
-			$scope.businessForm = {};
-			$scope.saveSuccess = 'Salvo com sucesso';
-		});
-	};
 	
 	$scope.deleteBusiness = function(id) {
 		businessAPI.deleteBusiness(id).then(function(data) {

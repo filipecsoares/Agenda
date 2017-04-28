@@ -1,14 +1,14 @@
-angular.module("agenda").service("businessAPI", function($http) {
+angular.module("agenda").service("businessAPI", function($http, config) {
 	this.getBusinesses = function(){
-		return $http.get("http://localhost:8090/business");
+		return $http.get(config.baseUrl + "/business");
 	};
 	this.getBusiness = function(businessId){
-		return $http.get("http://localhost:8090/business/" + businessId);
+		return $http.get(config.baseUrl + "/business/" + businessId);
 	};
 	this.saveBusiness = function(business){
-		return $http.post("http://localhost:8090/business", business);
+		return $http.post(config.baseUrl + "/business", business);
 	};
 	this.deleteBusiness = function(businessId){
-		return $http.delete("http://localhost:8090/business/" + businessId);
+		return $http.delete(config.baseUrl + "/business/" + businessId);
 	};
 });

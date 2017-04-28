@@ -8,21 +8,21 @@
 	<br />
 	<table ng-show="users.length > 0" class="table table-striped">
 		<tr>
-			<th>Ações</th>
 			<th><a href="" ng-click="ordenarPor('name')">Nome</a></th>
 			<th><a href="" ng-click="ordenarPor('email')">Email</a></th>
 			<th>Status</th>
 			<th>Cadastramento</th>
+			<th>Ações</th>
 		</tr>
 		<tr ng-repeat="user in users | filter:criterioDeBusca | orderBy:criterioDeOrdenacao:direcaoDaOrdenacao">
-			<td>
+			<td width="20%">{{user.name}}</td>
+			<td width="25%">{{user.email}}</td>
+			<td width="15%">{{user.statusString}}</td>
+			<td width="25%">{{user.created | date:'dd/MM/yyyy HH:mm'}}</td>
+			<td width="15%">
 				<a class="btn btn-default" href="#!/userEdit/{{user.id}}">Editar</a>
 				<a class="btn btn-danger" href="#!/user" ng-click="deleteUser(user.id)">Excluir</a>
 			</td>
-			<td>{{user.name}}</td>
-			<td>{{user.email}}</td>
-			<td>{{user.statusString}}</td>
-			<td>{{user.created | date:'dd/MM/yyyy HH:mm'}}</td>
 		</tr>
 		<tfoot>
 			<tr>

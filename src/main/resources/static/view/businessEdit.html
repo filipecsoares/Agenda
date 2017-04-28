@@ -1,6 +1,6 @@
 <div class="jumbotron">
 	<form method="POST" name="addItem" role="businessForm" ng-submit="saveBusiness(businessForm)">
-		<div class="alert alert-success" ng-show="addItem.name.$invalid && addItem.owner.name.$invalid && saveSuccess != null && saveSuccess != ''">
+		<div class="alert alert-success" ng-show="addItem.name.$invalid && addItem.description && saveSuccess != null && saveSuccess != ''">
 			<strong>{{saveSuccess}}</strong>
 		</div>
     	<div class="container">
