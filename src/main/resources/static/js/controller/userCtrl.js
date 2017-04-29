@@ -1,12 +1,13 @@
 angular.module("agenda").controller("userCtrl", function($scope, $location, userAPI) {
 	$scope.users = [];
+	$scope.messageErro = "";
 	
 	var findUsers = function() {
 
 		userAPI.getUsers().then(function(res) {
 			$scope.users = res.data;
 		}, function(res) {
-			$scope.message = "Problema: " + data;
+			$scope.messageErro = "Erro ao listar usuários";
 		});
 	};
 
@@ -23,7 +24,10 @@ angular.module("agenda").controller("userCtrl", function($scope, $location, user
 	$scope.deleteUser = function(id) {
 		userAPI.deleteUser(id).then(function(data) {
 			findUsers();
+			$scope.messageErro = "";
 			$location.path("/user");
+		}, function(data){
+			$scope.messageErro = "Erro ao excluir. O usuário está sendo utilizado.";
 		});
 	};
 
@@ -35,6 +39,7 @@ angular.module("agenda").controller("userCtrl", function($scope, $location, user
 	$scope.atualizar = function() {
 		$scope.criterioDeOrdenacao = "";
 		$scope.criterioDeBusca = "";
+		$scope.messageErro = "";
 		$location.path("/user");
 	};
 	findUsers();

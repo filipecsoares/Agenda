@@ -3,8 +3,10 @@
 	<a class="btn btn-success" href="#!/userEdit">Adicionar</a>
 	<button class="btn btn-success" ng-click="atualizar()">Atualizar</button>
 	<br /><br />
-	{{message}}
 	<input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="O que você está buscando?" />
+	<div class="alert alert-danger" ng-show="messageErro != null && messageErro != ''">
+		<strong>{{messageErro}}</strong>
+	</div>
 	<br />
 	<table ng-show="users.length > 0" class="table table-striped">
 		<tr>

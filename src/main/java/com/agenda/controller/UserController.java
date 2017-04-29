@@ -33,7 +33,7 @@ public class UserController {
 		}
 		return new ResponseEntity<List<User>>(users, HttpStatus.OK);
 	}
-	
+
 	@CrossOrigin
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<User> findOne(@PathVariable("id") Long id) {
@@ -67,8 +67,12 @@ public class UserController {
 			return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
 		}
 
-		repository.delete(id);
-		return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
+		try {
+			repository.delete(id);
+			return new ResponseEntity<User>(HttpStatus.NO_CONTENT);
+		} catch (Exception e) {
+			return new ResponseEntity<User>(HttpStatus.FAILED_DEPENDENCY);
+		}
 	}
 
 	@RequestMapping(method = RequestMethod.DELETE)

@@ -1,13 +1,13 @@
-<div>
+<div ng-controller="indexCtrl">
 	<nav class="navbar navbar-light bg-faded" style="background: #EEEEEE">
 	  <ul class="nav navbar-nav nav-pills">
-	    <li class="nav-item active">
+	    <li ng-class="{active: isActive('/')}">
 	      <a class="nav-link" href="#!/">Home</a>
 	    </li>
-	    <li class="nav-item">
+	    <li ng-class="{active: isActive('/user')}">
 	      <a class="nav-link" href="#!/user">Usuários</a>
 	    </li>
-	    <li class="nav-item">
+	    <li ng-class="{active: isActive('/business')}">
 	      <a class="nav-link" href="#!/business">Negócios</a>
 	    </li>
 	  </ul>
