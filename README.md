@@ -38,4 +38,6 @@ OBS: H2 é um banco de dados relacional criado em memória. Foi escolhido para q
 
 # Informações:
 
-Backend fornece as informações do banco de dados atraves de Rest (Formato JSON). No Frontend o AngularJS é responsável por pegar as informações e pela lógica.
+Backend fornece as informações do banco de dados atraves de Rest (Formato JSON). No Frontend o AngularJS é responsável por pegar as informações e pela lógica.<br />
+
+OBS: Todo o frontend está no pacote 'src/main/resources/static'.
